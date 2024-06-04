@@ -1,0 +1,50 @@
+{
+    "easy": [
+        {"pl": "Dzień dobry", "en": "Good morning"},
+        {"pl": "Jak się masz?", "en": "How are you?"},
+        {"pl": "Do widzenia", "en": "Goodbye"},
+        {"pl": "Dziękuję", "en": "Thank you"},
+        {"pl": "Tak", "en": "Yes"},
+        {"pl": "Nie", "en": "No"},
+        {"pl": "Przepraszam", "en": "Excuse me"},
+        {"pl": "Proszę", "en": "Please"},
+        {"pl": "Nie rozumiem", "en": "I don't understand"},
+        {"pl": "Mogę pomóc?", "en": "Can I help?"}
+    ],
+    "medium": [
+        {"pl": "Czy mówisz po angielsku?", "en": "Do you speak English?"},
+        {"pl": "Gdzie jest najbliższy hotel?", "en": "Where is the nearest hotel?"},
+        {"pl": "Ile to kosztuje?", "en": "How much does it cost?"},
+        {"pl": "Proszę o pomoc", "en": "Please help me"},
+        {"pl": "Która jest godzina?", "en": "What time is it?"},
+        {"pl": "Czy mogę prosić o rachunek?", "en": "Can I have the bill, please?"},
+        {"pl": "Gdzie jest stacja kolejowa?", "en": "Where is the train station?"},
+        {"pl": "Jak dojadę do centrum?", "en": "How do I get to the city center?"},
+        {"pl": "Czy mogę zamówić taksówkę?", "en": "Can I order a taxi?"},
+        {"pl": "Czy są tu jakieś restauracje?", "en": "Are there any restaurants around here?"}
+    ],
+    "hard": [
+        {"pl": "Mam na imię Jan i jestem z Polski", "en": "My name is John and I am from Poland"},
+        {"pl": "Miło cię poznać, jak się nazywasz?", "en": "Nice to meet you, what is your name?"},
+        {"pl": "Skąd pochodzisz i co tu robisz?", "en": "Where are you from and what are you doing here?"},
+        {"pl": "Czy mógłbyś mi powiedzieć, jak dotrzeć do najbliższej stacji?", "en": "Could you tell me how to get to the nearest station?"},
+        {"pl": "Czy mogę zarezerwować pokój na dwie noce?", "en": "Can I book a room for two nights?"},
+        {"pl": "Czy możesz polecić mi jakieś atrakcje turystyczne?", "en": "Can you recommend any tourist attractions?"},
+        {"pl": "Czy mogę zapłacić gotówką?", "en": "Can I pay with cash?"},
+        {"pl": "Czy w tym hotelu jest dostęp do internetu?", "en": "Is there internet access in this hotel?"},
+        {"pl": "Jaki jest najbliższy przystanek autobusowy?", "en": "Where is the nearest bus stop?"},
+        {"pl": "Czy mogę wymienić pieniądze w recepcji?", "en": "Can I exchange money at the reception?"}
+    ],
+    "extreme": [
+        {"pl": "Przepraszam, czy mogę zapłacić kartą za moje zamówienie w tej restauracji?", "en": "Excuse me, can I pay by card for my order in this restaurant?"},
+        {"pl": "Chciałbym zarezerwować stolik dla czterech osób na jutro wieczór, proszę", "en": "I would like to reserve a table for four people for tomorrow evening, please"},
+        {"pl": "Poproszę menu w języku angielskim, ponieważ nie mówię dobrze po polsku", "en": "Can I have the menu in English, because I don't speak Polish well"},
+        {"pl": "Czy mógłby Pan mi powiedzieć, jak najlepiej dostać się do muzeum komunikacji miejskiej?", "en": "Could you tell me the best way to get to the public transport museum?"},
+        {"pl": "Czy w tej restauracji serwują dania wegetariańskie?", "en": "Does this restaurant serve vegetarian dishes?"},
+        {"pl": "Czy mogę prosić o dodatkowe ręczniki do mojego pokoju?", "en": "Can I have some extra towels for my room?"},
+        {"pl": "Czy mogę zapłacić z góry za cały pobyt?", "en": "Can I pay in advance for the entire stay?"},
+        {"pl": "Czy mogę prosić o późniejsze wymeldowanie?", "en": "Can I request a late check-out?"},
+        {"pl": "Czy możecie zorganizować transport na lotnisko?", "en": "Can you arrange transportation to the airport?"},
+        {"pl": "Czy w pobliżu jest jakieś miejsce, gdzie mogę wynająć rower?", "en": "Is there a place nearby where I can rent a bicycle?"}
+    ]
+}
