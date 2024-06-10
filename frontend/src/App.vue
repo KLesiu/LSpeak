@@ -1,7 +1,15 @@
 <script setup lang="ts">
+import SideBar from './components/SideBar.vue'
+import Header from './components/Header.vue'
 </script>
 
 <template>
-<section></section>
+    <SideBar />
+    <Header />
 </template>
 
+<style lang="scss">
+body{
+    background-color: black;
+}
+</style>
