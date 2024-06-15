@@ -1,0 +1,17 @@
+header{
+    height: 80px;
+    background-color: #ffffffc4;
+    border: 1px solid #ffff;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    h1{
+        font-family: AudioWide, sans-serif;
+        font-size: 2rem;
+        .firstLetter{
+            color: #E50060;
+        }
+    }
+    
+}

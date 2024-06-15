@@ -1,0 +1,12 @@
+.languages{
+    display: flex;
+    gap:0.5rem;
+    cursor: pointer;
+    img{
+        opacity: 0.5;
+        &.active{
+            opacity: 1;
+        }
+    }
+
+}

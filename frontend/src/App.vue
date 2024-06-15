@@ -8,8 +8,3 @@ import Header from './components/Header.vue'
     <Header />
 </template>
 
-<style lang="scss">
-body{
-    background-color: black;
-}
-</style>
