@@ -5,7 +5,6 @@
         {"pl": "Do widzenia", "eng": "Goodbye", "ger": "Auf Wiedersehen"},
         {"pl": "Dziękuję", "eng": "Thank you", "ger": "Danke"},
         {"pl": "Tak", "eng": "Yes", "ger": "Ja"},
-        {"pl": "Nie", "eng": "No", "ger": "Nein"},
         {"pl": "Przepraszam", "eng": "Excuse me", "ger": "Entschuldigung"},
         {"pl": "Proszę", "eng": "Please", "ger": "Bitte"},
         {"pl": "Nie rozumiem", "eng": "I don't understand", "ger": "Ich verstehe nicht"},
@@ -18,7 +17,6 @@
         {"pl": "Proszę o pomoc", "eng": "Please help me", "ger": "Bitte helfen Sie mir"},
         {"pl": "Która jest godzina?", "eng": "What time is it?", "ger": "Wie spät ist es?"},
         {"pl": "Czy mogę prosić o rachunek?", "eng": "Can I have the bill, please?", "ger": "Kann ich bitte die Rechnung haben?"},
-        {"pl": "Gdzie jest stacja kolejowa?", "eng": "Where is the train station?", "ger": "Wo ist der Bahnhof?"},
         {"pl": "Jak dojadę do centrum?", "eng": "How do I get to the city center?", "ger": "Wie komme ich ins Stadtzentrum?"},
         {"pl": "Czy mogę zamówić taksówkę?", "eng": "Can I order a taxi?", "ger": "Kann ich ein Taxi bestellen?"},
         {"pl": "Czy są tu jakieś restauracje?", "eng": "Are there any restaurants around here?", "ger": "Gibt es hier Restaurants?"}
@@ -29,7 +27,7 @@
         {"pl": "Skąd pochodzisz i co tu robisz?", "eng": "Where are you from and what are you doing here?", "ger": "Woher kommst du und was machst du hier?"},
         {"pl": "Czy mógłbyś mi powiedzieć, jak dotrzeć do najbliższej stacji?", "eng": "Could you tell me how to get to the nearest station?", "ger": "Könnten Sie mir sagen, wie ich zur nächsten Station komme?"},
         {"pl": "Czy mogę zarezerwować pokój na dwie noce?", "eng": "Can I book a room for two nights?", "ger": "Kann ich ein Zimmer für zwei Nächte buchen?"},
-        {"pl": "Czy możesz polecić mi jakieś atrakcje turystyczne?", "eng": "Can you recommend any tourist attractions?", "ger": "Können Sie mir irgendwelche Sehenswürdigkeiten empfehlen?"},
+        
         {"pl": "Czy mogę zapłacić gotówką?", "eng": "Can I pay with cash?", "ger": "Kann ich bar bezahlen?"},
         {"pl": "Czy w tym hotelu jest dostęp do internetu?", "eng": "Is there internet access in this hotel?", "ger": "Gibt es in diesem Hotel Internetzugang?"},
         {"pl": "Jaki jest najbliższy przystanek autobusowy?", "eng": "Where is the nearest bus stop?", "ger": "Wo ist die nächste Bushaltestelle?"},
@@ -40,7 +38,7 @@
         {"pl": "Chciałbym zarezerwować stolik dla czterech osób na jutro wieczór, proszę", "eng": "I would like to reserve a table for four people for tomorrow evening, please", "ger": "Ich möchte einen Tisch für vier Personen für morgen Abend reservieren, bitte"},
         {"pl": "Poproszę menu w języku angielskim, ponieważ nie mówię dobrze po polsku", "eng": "Can I have the menu in English, because I don't speak Polish well", "ger": "Kann ich die Speisekarte auf Englisch haben, weil ich nicht gut Polnisch spreche"},
         {"pl": "Czy mógłby Pan mi powiedzieć, jak najlepiej dostać się do muzeum komunikacji miejskiej?", "eng": "Could you tell me the best way to get to the public transport museum?", "ger": "Könnten Sie mir sagen, wie ich am besten zum Nahverkehrsmuseum komme?"},
-        {"pl": "Czy w tej restauracji serwują dania wegetariańskie?", "eng": "Does this restaurant serve vegetarian dishes?", "ger": "Serviert dieses Restaurant vegetarische Gerichte?"},
+       
         {"pl": "Czy mogę prosić o dodatkowe ręczniki do mojego pokoju?", "eng": "Can I have some extra towels for my room?", "ger": "Kann ich zusätzliche Handtücher für mein Zimmer haben?"},
         {"pl": "Czy mogę zapłacić z góry za cały pobyt?", "eng": "Can I pay in advance for the entire stay?", "ger": "Kann ich im Voraus für den gesamten Aufenthalt bezahlen?"},
         {"pl": "Czy mogę prosić o późniejsze wymeldowanie?", "eng": "Can I request a late check-out?", "ger": "Kann ich einen späten Check-out beantragen?"},
