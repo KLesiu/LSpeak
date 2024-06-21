@@ -11,7 +11,7 @@
 import { Ref, ref } from "vue";
 import { MenuTabsEnum } from "../enums/MenuTabsEnum";
 import MenuTabs from "./MenuTabs.vue";
-// import SoundsSettings from "./SoundsSettings.vue";
+import SoundsSettings from "./SoundsSettings.vue";
 import LanguagesSettings from "./LanguagesSettings.vue";
 
 
