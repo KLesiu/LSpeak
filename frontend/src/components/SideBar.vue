@@ -4,7 +4,7 @@
       <div
         class="main-tabs__menu-tab"
         :class="{ active: activeTab === 'learn' }"
-        @click="setActiveTab('learn')"
+        @click="setActiveTab(SideBarEnum.LEARN)"
       >
         <img src="./../assets/learn.svg" alt="Learn Icon" />
         <span>Learn</span>
@@ -12,7 +12,7 @@
       <div
         class="main-tabs__menu-tab"
         :class="{ active: activeTab === 'levels' }"
-        @click="setActiveTab('levels')"
+        @click="setActiveTab(SideBarEnum.LEVELS)"
       >
         <img src="./../assets/levels.svg" alt="Levels Icon" />
         <span>Levels</span>
@@ -20,13 +20,13 @@
       <div
         class="main-tabs__menu-tab"
         :class="{ active: activeTab === 'settings' }"
-        @click="setActiveTab('settings')"
+        @click="setActiveTab(SideBarEnum.SETTINGS)"
       >
         <img src="./../assets/settings.svg" alt="Settings Icon" />
         <span>Settings</span>
       </div>
     </div>
-    <div class="authors-tab main-tabs__menu-tab">
+    <div class="authors-tab main-tabs__menu-tab" @click="setActiveTab(SideBarEnum.AUTHORS)">
       <img src="./../assets/authors.svg" alt="Authors Icon" />
       <span>Authors</span>
     </div>
@@ -34,12 +34,15 @@
 </template>
 
 <script setup lang="ts">
+import {SideBarEnum} from "./../enums/SideBarEnum";
 import { ref } from "vue";
 
 const activeTab = ref<string | null>(null);
+const emits = defineEmits(["activeTab"]);
 
-const setActiveTab = (tab: string) => {
+const setActiveTab = (tab: SideBarEnum) => {
   activeTab.value = tab;
+  emits('activeTab',tab);
 };
 </script>
 

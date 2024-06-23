@@ -1,8 +1,8 @@
 <template>
-    <SideBar />
+    <SideBar @active-tab="setActiveTab" />
     <section class="main-container">
         <Header :langSet="langSet" />
-        <Main @set-lang-set="setLangSet"/>
+        <Main @set-lang-set="setLangSet" :view="currenTabComp"/>
     </section>
 
     
@@ -13,12 +13,19 @@ import SideBar from './components/SideBar.vue'
 import Header from './components/Header.vue'
 import Main from "./components/Main.vue"
 import { LanguagesSetEnum } from './enums/LanguagesEnum';
-import { Ref, onMounted, ref } from 'vue';
+import { ComputedRef, Ref, computed, onMounted, ref } from 'vue';
+import { SideBarEnum } from './enums/SideBarEnum';
 
 const langSet:Ref<LanguagesSetEnum> = ref(LanguagesSetEnum.POLEN);
+const currentTab:Ref<SideBarEnum> = ref(SideBarEnum.LEARN);
+const currenTabComp:ComputedRef<SideBarEnum> = computed(()=>currentTab.value);
 
 const setLangSet = (newlangSet:LanguagesSetEnum):void=>{
     langSet.value=newlangSet;
+}
+
+const setActiveTab= (tab:SideBarEnum):void=>{
+currentTab.value=tab;
 }
 
 onMounted(()=>{
