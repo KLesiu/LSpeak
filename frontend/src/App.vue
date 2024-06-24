@@ -17,7 +17,7 @@ import { ComputedRef, Ref, computed, onMounted, ref } from 'vue';
 import { SideBarEnum } from './enums/SideBarEnum';
 
 const langSet:Ref<LanguagesSetEnum> = ref(LanguagesSetEnum.POLEN);
-const currentTab:Ref<SideBarEnum> = ref(SideBarEnum.LEARN);
+const currentTab:Ref<SideBarEnum> = ref(SideBarEnum.LEVELS);
 const currenTabComp:ComputedRef<SideBarEnum> = computed(()=>currentTab.value);
 
 const setLangSet = (newlangSet:LanguagesSetEnum):void=>{
