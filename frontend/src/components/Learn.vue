@@ -6,7 +6,7 @@
                 <span>Step: {{ currentLearnSession.step }}</span>
             </div>
             <div class="learn__header__timer">
-                <span>{{ timer }}s</span>
+                <span :class="{'expiring': timer < 10}">{{ timer }}s</span>
                 <Hourglass />
             </div>
             
