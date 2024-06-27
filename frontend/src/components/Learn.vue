@@ -13,7 +13,7 @@
       <div class="learn__main">
         <div class="learn__main__baseLang">
           <img :src="returnBaseLangImage()" />
-          <span>Jak sie masz?</span>
+          <span>{{ wordToTranslateComp }}</span>
         </div>
         <div class="learn__main__microphoneContainer">
           <img
@@ -25,14 +25,15 @@
             class="learn__main__microphoneContainer__lang"
             :src="returnSecondLangImage()"
           />
-          <audio ref="audioPlayer" controls></audio>
+          <audio class="" ref="audioPlayer" controls></audio>
         </div>
         <div class="learn__main__resultContainer">
           <div class="learn__main__resultContainer__result">
             <img :src="returnSecondLangImage()" />
-            <span>Haw they you?</span>
+            <span v-if="userWordTranslatedComp">{{ userWordTranslatedComp}}</span>
+            <span v-else>.....</span>
           </div>
-          <span class="learn__main__resultContainer__correctAnswer">How are you?</span>
+          <span class="learn__main__resultContainer__correctAnswer">{{ correctWordTranslateComp }}</span>
         </div>
       </div>
     </section>
@@ -40,7 +41,7 @@
   
   <script lang="ts" setup>
   import { PropType, Ref, computed, onUnmounted, ref } from 'vue';
-  import { CurrentLearnSession } from './../interfaces/LearnInterfaces';
+  import { CurrentLearnSession, Question } from './../interfaces/LearnInterfaces';
   import Hourglass from './Hourglass.vue';
   
   const props = defineProps({
@@ -122,6 +123,7 @@
   };
   
   const sendToTranslate = async(bytes:string) => {
+    return
     const result = await fetch('http://localhost:8000/transcribeText',{
         method:'POST',
         headers:{
@@ -133,6 +135,15 @@
     })
     console.log(result)
   };
+
+  const wordToTranslate = ref(props.currentLearnSession.texts[0][configLang.baseLang as keyof Question])
+  const wordToTranslateComp = computed(()=>wordToTranslate.value)
+
+  const userWordTranslated = ref('')
+  const userWordTranslatedComp = computed(()=>userWordTranslated.value)
+
+  const correctWordTranslate = ref(props.currentLearnSession.texts[0][configLang.secondLang as keyof Question])
+  const correctWordTranslateComp = computed(()=>correctWordTranslate.value)
  
   
   onUnmounted(() => {
@@ -142,9 +153,5 @@
   });
   </script>
   
-  <style scoped>
-  button {
-    margin-right: 10px;
-  }
-  </style>
+
   

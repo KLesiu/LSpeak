@@ -1,9 +1,9 @@
 export enum LanguagesEnum {
     POLISH = 'pl',
     GERMANY = "ger",
-    ENGLISH = "en"
+    ENGLISH = "eng"
 }
 export enum LanguagesSetEnum{
     POLGER = 'pl-ger',
-    POLEN = 'pl-en',
+    POLEN = 'pl-eng',
 }
