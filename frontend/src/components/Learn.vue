@@ -123,18 +123,33 @@
   };
   
   const sendToTranslate = async(bytes:string) => {
-    return
-    const result = await fetch('http://localhost:8000/transcribeText',{
+    // const result = await fetch('http://localhost:8000/transcribeText',{
+    //     method:'POST',
+    //     headers:{
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body:JSON.stringify({
+    //         file:bytes
+    //     })
+    // }).then(res=>res.json()).catch(err=>console.error(err))
+    const result = 'Good Morgen'
+    userWordTranslated.value = result
+    compareWords()
+  };
+
+  const compareWords = async()=>{
+    const result = await fetch('http://localhost:8000/compareText',{
         method:'POST',
         headers:{
             'Content-Type': 'application/json'
         },
         body:JSON.stringify({
-            file:bytes
+            textBase:correctWordTranslateComp.value,
+            text: userWordTranslatedComp.value
         })
-    })
+    }).then(res=>res.json()).catch(err=>console.error(err))
     console.log(result)
-  };
+  }
 
   const wordToTranslate = ref(props.currentLearnSession.texts[0][configLang.baseLang as keyof Question])
   const wordToTranslateComp = computed(()=>wordToTranslate.value)
