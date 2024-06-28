@@ -2,12 +2,7 @@
   <header>
     <h1><span class="firstLetter">L</span>Speak</h1>
     <section>
-      <div
-        class="languages"
-        v-if="
-         props.langSet === LanguagesSetEnum.POLEN
-        "
-      >
+      <div class="languages" v-if="props.langSet === LanguagesSetEnum.POLEN">
         <img
           @click="changeOpacity(LanguagesEnum.POLISH)"
           src="./../assets//polEng.svg"
@@ -49,33 +44,33 @@ const props = defineProps({
 
 const config: Ref<LanguagesConfig> = ref({
   baseLang: LanguagesEnum.POLISH,
-  secondLang: LanguagesEnum.ENGLISH,});
-
+  secondLang: LanguagesEnum.ENGLISH,
+});
 
 const changeOpacity = (baseLang: LanguagesEnum): void => {
   config.value.secondLang = config.value.baseLang;
   config.value.baseLang = baseLang;
-  localStorage.setItem("configLang",JSON.stringify(config.value));
+  localStorage.setItem("configLang", JSON.stringify(config.value));
 };
-onMounted(()=>{
-    const configFromLocalStorage=JSON.parse(`${localStorage.getItem("configLang")}`);
-    if(!configFromLocalStorage){
-        if(localStorage.getItem("langSet")){
-            switch(localStorage.getItem("langSet")){
-                case LanguagesSetEnum.POLEN:
-                    config.value.baseLang=LanguagesEnum.POLISH;
-                    config.value.secondLang=LanguagesEnum.ENGLISH;
-                    break;
-                case LanguagesSetEnum.POLGER:
-                    config.value.baseLang=LanguagesEnum.POLISH;
-                    config.value.secondLang=LanguagesEnum.GERMANY;
-                    break;
-            }
-            return
-        }
+onMounted(() => {
+  const configFromLocalStorage = JSON.parse(
+    `${localStorage.getItem("configLang")}`
+  );
+  if (!configFromLocalStorage) {
+    if (localStorage.getItem("langSet")) {
+      switch (localStorage.getItem("langSet")) {
+        case LanguagesSetEnum.POLEN:
+          config.value.baseLang = LanguagesEnum.POLISH;
+          config.value.secondLang = LanguagesEnum.ENGLISH;
+          break;
+        case LanguagesSetEnum.POLGER:
+          config.value.baseLang = LanguagesEnum.POLISH;
+          config.value.secondLang = LanguagesEnum.GERMANY;
+          break;
+      }
+      return;
     }
-    config.value = configFromLocalStorage
-})
-
-
+  }
+  config.value = configFromLocalStorage;
+});
 </script>
