@@ -12,7 +12,7 @@ def transcribe_text(request: TranscribeTextRequest):
     return transcribe_to_text(request.file)
 
 @router.post("/compareText", status_code=status.HTTP_200_OK)
-def compare_text(request: CompareTextRequest):
+def compare_text_to(request: CompareTextRequest):
     # """
     # Compares two texts and returns the comparison result.
     # """

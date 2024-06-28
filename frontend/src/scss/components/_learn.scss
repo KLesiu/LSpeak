@@ -53,6 +53,9 @@
             &__micro{
                 cursor: pointer;
             }
+            audio{
+                display: none;
+            }
         }
         &__resultContainer{
             display: flex;

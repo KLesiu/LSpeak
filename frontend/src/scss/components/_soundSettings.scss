@@ -50,7 +50,7 @@
                 }
             }
             input[type='range'] {
-                width: 400px;
+                width: 183px;
               }
               
               input[type='range'],
@@ -61,7 +61,7 @@
               
               input[type='range']::-webkit-slider-runnable-track {
                 height: 3px;
-                background: linear-gradient(to right, #293043, #293043), #D7D7D7;
+                background: linear-gradient(to right, #e5005f, #e5005f), #D7D7D7;
                 background-size: var(--background-size, 0%) 100%;
                 background-repeat: no-repeat;
                 border-radius: 5px;
@@ -72,7 +72,7 @@
                 width: 15px;
                 height: 15px;
                 cursor: pointer;
-                background: #293043;
+                background: #e5005f;
                 border: solid white 1px;
                 border-radius: 50%;
                 margin-top: -6px;
