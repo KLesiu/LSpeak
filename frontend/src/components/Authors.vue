@@ -2,33 +2,6 @@
   <section class="authors">
     <div class="box">
       <div class="box__header">
-        <p class="box__header__name">Antoni</p>
-        <p class="lastname">Krawczyk</p>
-      </div>
-      <div class="box__content">
-   
-          <div class="box__content__element">
-            <img src="./../assets/fa_instagram.svg" alt="" />
-            <a
-              href="https://www.instagram.com/krawczyk.antoni_/?hl=pl"
-              target="_blank"
-              >krawczyk.antoni_</a
-            >
-          </div>
-   
-
-          <div class="box__content__element">
-            <img src="./../assets/fa_github.svg" alt="" />
-            <a href="https://github.com/AntoniKra" target="_blank"
-              >AntoniKra
-            </a>
-          </div>
-  
-      </div>
-    </div>
-    <div class="Picture"></div>
-    <div class="box">
-      <div class="box__header">
         <p class="box__header__name">Jakub</p>
         <p class="lastname">Leśkiewicz</p>
       </div>
@@ -55,6 +28,36 @@
         </div>
       </div>
     </div>
+    <div class="picture">
+      <img src="./../assets/foto.jpg" >
+    </div>
+    <div class="box">
+      <div class="box__header">
+        <p class="box__header__name">Antoni</p>
+        <p class="lastname">Krawczyk</p>
+      </div>
+      <div class="box__content">
+   
+          <div class="box__content__element">
+            <img src="./../assets/fa_instagram.svg" alt="" />
+            <a
+              href="https://www.instagram.com/krawczyk.antoni_/?hl=pl"
+              target="_blank"
+              >krawczyk.antoni_</a
+            >
+          </div>
+   
+
+          <div class="box__content__element">
+            <img src="./../assets/fa_github.svg" alt="" />
+            <a href="https://github.com/AntoniKra" target="_blank"
+              >AntoniKra
+            </a>
+          </div>
+  
+      </div>
+    </div>
+
   </section>
 </template>
 
