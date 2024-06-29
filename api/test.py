@@ -99,6 +99,12 @@ def test_get_data_by_level_route_seventh():
         {"pl": "Czy możecie polecić jakieś dobre restauracje w pobliżu?", "eng": "Can you recommend any good restaurants nearby?", "ger": "Können Sie gute Restaurants in der Nähe empfehlen?"}
     ]
 
+
+def test_get_data_by_level_route_eigth():
+    response = client.post("/getDataByLevefl",json={"level":1})
+    assert response.status_code == 404
+
+
 def test_get_all_data_first():
     response = client.get("/getAllData")
     assert response.status_code == 200
@@ -167,4 +173,10 @@ def test_get_all_data_second():
     ]
     
 }
+
+
+def test_get_all_data_third():
+    response = client.get("/getAllDatfa")
+    assert response.status_code == 404 
+
 
