@@ -34,7 +34,7 @@ Ideas:
 git clone https://github.com/KLesiu/LSpeak.git
 ```
 
-<p>1.1. Get the env file from the author and paste the file into ./api </p>
+<p>1.1. Get the env file from the author and paste the file into ./api. IMPORTANT. The path for the env file will be:   ./api/.env . So you have to rename file name after download and change it from "env" to ".env" </p>
 
 
 <p>2. Go to the frontend directory</p>
