@@ -1,6 +1,7 @@
-from fastapi import APIRouter,status
-from services.services import transcribe_to_text,compare_text,load_data_by_level
-from dependencies import CompareTextRequest,TranscribeTextRequest,LoadDataByLvlRequest
+from fastapi import APIRouter, status
+from services.services import transcribe_to_text, compare_text, load_data_by_level
+from dependencies import CompareTextRequest, TranscribeTextRequest, LoadDataByLvlRequest
+
 router = APIRouter()
 
 @router.post("/transcribeText",status_code=status.HTTP_200_OK)
