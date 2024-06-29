@@ -20,13 +20,15 @@ import { StatusEnum } from './enums/StatusEnum';
 import { ModulesEnum } from './enums/ModulesEnum';
 import { Level, LevelsInterface } from './interfaces/LevelsInterfaces';
 
-const langSet:Ref<LanguagesSetEnum> = ref(LanguagesSetEnum.POLEN);
-const currentTab:Ref<SideBarEnum> = ref(SideBarEnum.LEVELS);
-const currenTabComp:ComputedRef<SideBarEnum> = computed(()=>currentTab.value);
+const langSet: Ref<LanguagesSetEnum> = ref(LanguagesSetEnum.POLEN);
+const currentTab: Ref<SideBarEnum> = ref(SideBarEnum.AUTHORS);
+const currenTabComp: ComputedRef<SideBarEnum> = computed(
+  () => currentTab.value
+);
 
-const setLangSet = (newlangSet:LanguagesSetEnum):void=>{
-    langSet.value=newlangSet;
-}
+const setLangSet = (newlangSet: LanguagesSetEnum): void => {
+  langSet.value = newlangSet;
+};
 
 const setActiveTab= (tab:SideBarEnum):void=>{
 currentTab.value=tab;
@@ -140,12 +142,9 @@ const levelCompleted = (session:CurrentLearnSession)=>{
 const isMainShow:Ref<boolean> = ref(true);
 
 
-onMounted(()=>{
-    const langSetFromLocalStorage=localStorage.getItem("langSet");
-    if(!langSetFromLocalStorage)return;
-    langSet.value=langSetFromLocalStorage as LanguagesSetEnum;
-})
-
-
+onMounted(() => {
+  const langSetFromLocalStorage = localStorage.getItem("langSet");
+  if (!langSetFromLocalStorage) return;
+  langSet.value = langSetFromLocalStorage as LanguagesSetEnum;
+});
 </script>
-

@@ -17,7 +17,7 @@ import Settings from "./Settings.vue";
 import Levels from "./Levels.vue";
 import Learn from "./Learn.vue";
 import { SideBarEnum } from "../enums/SideBarEnum";
-import {  PropType, Ref, onMounted, ref } from "vue";
+import { PropType, Ref, onMounted, ref } from "vue";
 import { CurrentLearnSession } from "../interfaces/LearnInterfaces";
 import { ModulesEnum } from "../enums/ModulesEnum";
 import { StatusEnum } from "../enums/StatusEnum";

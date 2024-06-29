@@ -1,0 +1,56 @@
+.authors {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    &:hover {
+      color: red;
+    }
+  }
+  .box {
+    width: 400px;
+    height: 70%;
+    background-color: white;
+    display: flex;
+    gap: 4vh;
+    flex-direction: column;
+    align-items: center;
+    .box__element {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 1rem;
+      width: 15vw;
+      font-weight: 700;
+    }
+    &__header {
+      width: 100%;
+      height: 10vh;
+      background-color: #e60060;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      p {
+        font-weight: 700;
+        font-size: 20px;
+        padding: 0 1rem;
+        color: aliceblue;
+        &.lastname {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+  .Picture {
+    height: 85%;
+    width: 650px;
+    border: #e60060 solid 1px;
+  }
+}
