@@ -2,9 +2,6 @@
 
 <p id="description">LSpeak is an innovative language learning application that caters to German English and Polish learners. It offers a versatile learning experience by incorporating both microphone-based and manual input methods. Users can practice vocabulary by speaking into the microphone to guess words or by typing responses directly. This dual approach not only enhances engagement but also accommodates different learning styles. The application is designed with a modern and user-friendly interface developed using FIGMA for precise design implementation. On the frontend VUE3 ensures a responsive and interactive user experience allowing seamless navigation and intuitive interactions. Meanwhile FASTAPI powers the backend ensuring efficient data handling and robust performance. LSpeak leverages these technologies to provide a comprehensive language learning platform that combines effective learning methodologies with cutting-edge design and technology. Whether users prefer interactive speaking exercises or focused typing drills LSpeak adapts to their needs making language learning accessible engaging and effective.</p>
 
-<h2>Project Screenshots:</h2>
-
-<img src="" alt="project-screenshot" width="400" height="400/">
 
   
   
@@ -28,11 +25,15 @@ Ideas:
 
 <h2>🛠️ Installation Steps:</h2>
 
+
 <p>1. Clone repo</p>
 
 ```
 git clone https://github.com/KLesiu/LSpeak.git
 ```
+
+<p>1.1. Get the env file from the author and paste the file into ./api </p>
+
 
 <p>2. Go to the frontend directory</p>
 
@@ -52,8 +53,11 @@ npm i
 cd ..
 ```
 
-<p>5. Go to the api directory</p>
+<p>5. Go to the api directory and install dependencies</p>
 
+```
+cd api
+```
 ```
 pip install
 ```
