@@ -1,7 +1,7 @@
 <template>
     <SideBar @active-tab="setActiveTab" :active="currenTabComp" />
     <section class="main-container">
-        <Header :langSet="langSet" />
+        <Header v-if="isHeaderShow" :langSet="langSet" />
         <Main v-if="isMainShow" @set-lang-set="setLangSet" @exit-to-levels="setActiveTab(SideBarEnum.LEVELS)" @level-completed="levelCompleted" :view="currenTabComp" @start-level="setActiveTab(SideBarEnum.LEARN)"/>
     </section>
 
@@ -19,6 +19,7 @@ import { CurrentLearnSession } from './interfaces/LearnInterfaces';
 import { StatusEnum } from './enums/StatusEnum';
 import { ModulesEnum } from './enums/ModulesEnum';
 import { Level, LevelsInterface } from './interfaces/LevelsInterfaces';
+import { LanguagesConfig } from './interfaces/LanguagesInterfaces';
 
 const langSet: Ref<LanguagesSetEnum> = ref(LanguagesSetEnum.POLEN);
 const currentTab: Ref<SideBarEnum> = ref(SideBarEnum.LEVELS);
@@ -26,8 +27,13 @@ const currenTabComp: ComputedRef<SideBarEnum> = computed(
   () => currentTab.value
 );
 
-const setLangSet = (newlangSet: LanguagesSetEnum): void => {
+const isHeaderShow: Ref<boolean> = ref(true);
+
+const setLangSet = (newlangSet: LanguagesSetEnum,newLangConfig:LanguagesConfig): void => {
+localStorage.setItem("configLang", JSON.stringify(newLangConfig));
+isHeaderShow.value=false;
   langSet.value = newlangSet;
+  nextTick(() => (isHeaderShow.value = true));  
 };
 
 const setActiveTab= (tab:SideBarEnum):void=>{

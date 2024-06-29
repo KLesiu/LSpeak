@@ -24,7 +24,8 @@
 
 <script lang="ts" setup>
 import { Ref, onMounted, ref } from 'vue';
-import { LanguagesSetEnum } from '../enums/LanguagesEnum';
+import { LanguagesEnum, LanguagesSetEnum } from '../enums/LanguagesEnum';
+import { LanguagesConfig } from '../interfaces/LanguagesInterfaces';
 
 const emits = defineEmits(["set-lang-set"]);
 const chooseLangSet:Ref<LanguagesSetEnum | undefined>=ref();
@@ -33,7 +34,13 @@ const chooseLangSet:Ref<LanguagesSetEnum | undefined>=ref();
 const setLangSet = (langSet:LanguagesSetEnum):void=>{
     chooseLangSet.value=langSet;
     localStorage.setItem("langSet",langSet);
-    emits("set-lang-set",langSet);
+    const newLangConfigArray = langSet.split("-");
+    const newLangConfig:LanguagesConfig = {
+        baseLang:newLangConfigArray[0] as LanguagesEnum,
+        secondLang:newLangConfigArray[1] as LanguagesEnum
+
+    }
+    emits("set-lang-set",langSet,newLangConfig);
 }
 
 onMounted(()=>{
