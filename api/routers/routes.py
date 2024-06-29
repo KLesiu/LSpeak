@@ -1,5 +1,5 @@
 from fastapi import APIRouter, status
-from services.services import transcribe_to_text, compare_text, load_data_by_level
+from services.services import transcribe_to_text, compare_text, load_data_by_level,load_all_data
 from dependencies import CompareTextRequest, TranscribeTextRequest, LoadDataByLvlRequest
 
 router = APIRouter()
@@ -15,3 +15,7 @@ def compare_text_route(request:CompareTextRequest):
 @router.post("/getDataByLevel",status_code=status.HTTP_200_OK)
 def load_data_by_lvl_route(request:LoadDataByLvlRequest):
     return load_data_by_level(request.level)
+
+@router.get('/getAllData',status_code=status.HTTP_200_OK)
+def load_all_data_route():
+    return load_all_data()

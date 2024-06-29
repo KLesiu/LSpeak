@@ -1,4 +1,5 @@
 
+from typing import Dict, List
 import assemblyai as aai
 import os
 from fuzzywuzzy import process
@@ -32,4 +33,7 @@ def load_data_by_level(level:str)->list:
         return data[level]
     return  HTTPException(status_code=404,detail='Level not found')
  
+def load_all_data()->Dict[str, List[Dict[str, str]]]:
+    data = load_data()
+    return data
 
