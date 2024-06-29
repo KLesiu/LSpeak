@@ -3,12 +3,13 @@
     <Settings v-if="props.view === SideBarEnum.SETTINGS" v-bind="$attrs" />
     <Levels
       v-else-if="props.view === SideBarEnum.LEVELS"
-      @startLevel="startLevel" 
+      @startLevel="startLevel"  v-bind="$attrs"
     />
     <Learn
       v-else-if="props.view === SideBarEnum.LEARN && currentLearnSession"
       :current-learn-session="currentLearnSession"  v-bind="$attrs"
     />
+    <Authors v-else />
   </main>
 </template>
 
@@ -21,6 +22,7 @@ import { PropType, Ref, onMounted, ref } from "vue";
 import { CurrentLearnSession } from "../interfaces/LearnInterfaces";
 import { ModulesEnum } from "../enums/ModulesEnum";
 import { StatusEnum } from "../enums/StatusEnum";
+import Authors from "./Authors.vue"
 
 const props = defineProps({
   view: { type: String as PropType<SideBarEnum>, required: true },
@@ -40,7 +42,6 @@ const startLevel = async (
     moduleId: ModulesEnum.EASY,
   }
 ) => {
-  
   const texts = await getData(stepInfo.moduleId, stepInfo.step);
   currentLearnSession.value = {
     moduleName: stepInfo.moduleName,

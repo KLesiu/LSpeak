@@ -2,7 +2,7 @@
     <SideBar @active-tab="setActiveTab" :active="currenTabComp" />
     <section class="main-container">
         <Header :langSet="langSet" />
-        <Main v-if="isMainShow" @set-lang-set="setLangSet" @exit-to-levels="setActiveTab(SideBarEnum.LEVELS)" @level-completed="levelCompleted" :view="currenTabComp"/>
+        <Main v-if="isMainShow" @set-lang-set="setLangSet" @exit-to-levels="setActiveTab(SideBarEnum.LEVELS)" @level-completed="levelCompleted" :view="currenTabComp" @start-level="setActiveTab(SideBarEnum.LEARN)"/>
     </section>
 
     
@@ -21,7 +21,7 @@ import { ModulesEnum } from './enums/ModulesEnum';
 import { Level, LevelsInterface } from './interfaces/LevelsInterfaces';
 
 const langSet: Ref<LanguagesSetEnum> = ref(LanguagesSetEnum.POLEN);
-const currentTab: Ref<SideBarEnum> = ref(SideBarEnum.AUTHORS);
+const currentTab: Ref<SideBarEnum> = ref(SideBarEnum.LEVELS);
 const currenTabComp: ComputedRef<SideBarEnum> = computed(
   () => currentTab.value
 );
@@ -36,6 +36,7 @@ currentTab.value=tab;
 
 
 const levelCompleted = (session:CurrentLearnSession)=>{
+    console.log(session)
     let newLearnSession:CurrentLearnSession | undefined;
     if(session.step===4){
         switch(session.moduleId){
