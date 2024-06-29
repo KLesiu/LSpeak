@@ -30,6 +30,6 @@ def load_data_by_level(level:str)->list:
     data = load_data()
     if(level in data):
         return data[level]
-    return HTTPException(status_code=404,detail='Level not found')
+    return  HTTPException(status_code=404,detail='Level not found')
  
 
