@@ -159,6 +159,7 @@ onMounted(() => {
         secondLang:LanguagesEnum.ENGLISH,
     }
     localStorage.setItem('configLang', JSON.stringify(newLangConfig));
+    window.location.reload();
   }
   if(!localStorage.getItem('currentLearnSession' || localStorage.getItem('levelsInterface'))){
    currentTab.value=SideBarEnum.SETTINGS;
