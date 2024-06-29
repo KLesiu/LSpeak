@@ -2,6 +2,7 @@
 
 <h2>IMPORTANT!. If you turn on your microphone, lets say the word and turn off it. You have to wait a few seconds for the assemblyai server response!</h2>
 
+
 <p id="description">LSpeak is an innovative language learning application that caters to German English and Polish learners. It offers a versatile learning experience by incorporating both microphone-based and manual input methods. Users can practice vocabulary by speaking into the microphone to guess words or by typing responses directly. This dual approach not only enhances engagement but also accommodates different learning styles. The application is designed with a modern and user-friendly interface developed using FIGMA for precise design implementation. On the frontend VUE3 ensures a responsive and interactive user experience allowing seamless navigation and intuitive interactions. Meanwhile FASTAPI powers the backend ensuring efficient data handling and robust performance. LSpeak leverages these technologies to provide a comprehensive language learning platform that combines effective learning methodologies with cutting-edge design and technology. Whether users prefer interactive speaking exercises or focused typing drills LSpeak adapts to their needs making language learning accessible engaging and effective.</p>
 
 
@@ -61,7 +62,7 @@ cd ..
 cd api
 ```
 ```
-pip install uvicorn fastapi assemblyai fuzzywuzzy
+pip install uvicorn fastapi assemblyai fuzzywuzzy pytest python-Levenshtein
 ```
 <p>5.1 Add uvicorn to PATH</p>
 
@@ -100,3 +101,12 @@ Technologies used in the project:
 *   Python
 *   VITE
 *   AssemblyAI
+
+
+<h2>Unit tests</h2>
+Our FastAPI uses unit tests located in the test.py file. To run them, navigate to the ./api directory and use the command:
+
+```
+pytest test.py
+```
+This command efficiently tests the functionality of our API, ensuring the correctness of individual modules.
