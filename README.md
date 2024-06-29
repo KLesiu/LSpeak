@@ -59,8 +59,9 @@ cd ..
 cd api
 ```
 ```
-pip install
+pip install uvicorn fastapi assemblyai fuzzywuzzy
 ```
+<p>5.1 Add uvicorn to PATH</p>
 
 <p>6. Start api server</p>
 
@@ -68,11 +69,7 @@ pip install
 uvicorn main:app
 ```
 
-<p>7. Go to the root</p>
-
-```
-cd ..
-```
+<p>7. Open second terminal</p>
 
 <p>8. Go to the frontend directory</p>
 
