@@ -2,7 +2,7 @@
     <SideBar @active-tab="setActiveTab" :active="currenTabComp" />
     <section class="main-container">
         <Header v-if="isHeaderShow" :langSet="langSet" />
-        <Main v-if="isMainShow" @set-lang-set="setLangSet" @exit-to-levels="setActiveTab(SideBarEnum.LEVELS)" @level-completed="levelCompleted" :view="currenTabComp" @start-level="setActiveTab(SideBarEnum.LEARN)"/>
+        <Main v-if="isMainShow && currenTabComp" @set-lang-set="setLangSet" @exit-to-levels="setActiveTab(SideBarEnum.LEVELS)" @level-completed="levelCompleted" :view="currenTabComp" @start-level="setActiveTab(SideBarEnum.LEARN)"/>
     </section>
 
     
@@ -12,7 +12,7 @@
 import SideBar from './components/SideBar.vue'
 import Header from './components/Header.vue'
 import Main from "./components/Main.vue"
-import { LanguagesSetEnum } from './enums/LanguagesEnum';
+import { LanguagesEnum, LanguagesSetEnum } from './enums/LanguagesEnum';
 import { ComputedRef, Ref, computed, nextTick, onMounted, ref } from 'vue';
 import { SideBarEnum } from './enums/SideBarEnum';
 import { CurrentLearnSession } from './interfaces/LearnInterfaces';
@@ -22,8 +22,8 @@ import { Level, LevelsInterface } from './interfaces/LevelsInterfaces';
 import { LanguagesConfig } from './interfaces/LanguagesInterfaces';
 
 const langSet: Ref<LanguagesSetEnum> = ref(LanguagesSetEnum.POLEN);
-const currentTab: Ref<SideBarEnum> = ref(SideBarEnum.LEVELS);
-const currenTabComp: ComputedRef<SideBarEnum> = computed(
+const currentTab: Ref<SideBarEnum | undefined> = ref();
+const currenTabComp: ComputedRef<SideBarEnum | undefined> = computed(
   () => currentTab.value
 );
 
@@ -42,7 +42,6 @@ currentTab.value=tab;
 
 
 const levelCompleted = (session:CurrentLearnSession)=>{
-    console.log(session)
     let newLearnSession:CurrentLearnSession | undefined;
     if(session.step===4){
         switch(session.moduleId){
@@ -151,7 +150,21 @@ const isMainShow:Ref<boolean> = ref(true);
 
 onMounted(() => {
   const langSetFromLocalStorage = localStorage.getItem("langSet");
-  if (!langSetFromLocalStorage) return;
+  if (!langSetFromLocalStorage){
+    localStorage.setItem("langSet", LanguagesSetEnum.POLEN);
+  }
+  if(!localStorage.getItem('configLang')){
+    const newLangConfig:LanguagesConfig={
+        baseLang:LanguagesEnum.POLISH,
+        secondLang:LanguagesEnum.ENGLISH,
+    }
+    localStorage.setItem('configLang', JSON.stringify(newLangConfig));
+  }
+  if(!localStorage.getItem('currentLearnSession' || localStorage.getItem('levelsInterface'))){
+   currentTab.value=SideBarEnum.SETTINGS;
+  }else{
+    currentTab.value=SideBarEnum.LEVELS;
+  }
   langSet.value = langSetFromLocalStorage as LanguagesSetEnum;
 });
 </script>
