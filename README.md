@@ -49,8 +49,11 @@ npm i
 cd ..
 ```
 
-<p>5. Go to the api directory</p>
+<p>5. Go to the api directory and install dependencies</p>
 
+```
+cd api
+```
 ```
 pip install
 ```
