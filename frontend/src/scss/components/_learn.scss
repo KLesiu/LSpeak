@@ -78,6 +78,36 @@
                 color: #1EC388;
             }
         }
+        &__inputContainer{
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem;
+            align-items: center;
+            label{
+                font-size: 18px;
+            }
+            input{
+                width: 20px;
+                height: 20px;
+                background-color: grey;
+            }
+        }
+        &__inputTextContainer{
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            button{
+                background-color: #e60060 ;
+                border: none;
+                color: white;
+                border-radius: 0.25rem;
+                &:hover{
+                    background-color: #d65b8e ;
+                    cursor: pointer;
+
+                }
+            }
+        }
     }
     .incorrect{
         color: #e60060;

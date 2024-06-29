@@ -15,7 +15,7 @@
           <img :src="returnBaseLangImage()" />
           <span>{{ wordToTranslateComp }}</span>
         </div>
-        <div class="learn__main__microphoneContainer">
+        <div v-if="!isInputShow" class="learn__main__microphoneContainer">
           <img
             class="learn__main__microphoneContainer__micro"
             @click="toggleMicro"
@@ -27,15 +27,23 @@
           />
           <audio class="" ref="audioPlayer" controls></audio>
         </div>
+        <div v-else class="learn__main__inputTextContainer">
+          <input placeholder="Type your answer here!" type="text" v-model="userWordInput">
+          <button @click="sendToTranslate('')">CHECK</button>
+        </div>
         <div class="learn__main__resultContainer">
           <div class="learn__main__resultContainer__result">
             <img :src="returnSecondLangImage()" />
-            <input type="text" v-model="test">
             <span v-if="userWordTranslatedComp" class="learn__main__resultContainer__result__userWord" :class="{'incorrect':wordMistakes?.length}">{{ userWordTranslatedComp}}</span>
             <span v-else>.....</span>
           </div>
           <span class="learn__main__resultContainer__correctAnswer" v-if="userWordTranslatedComp">{{ correctWordTranslateComp }}</span>
         </div>
+        <div class="learn__main__inputContainer">
+          <label for="checkBoxInput">USE INPUT</label>
+          <input type="checkbox" id="checkBoxInput" v-model="isInputShow">
+        </div>
+        
       </div>
     </section>
     <section v-if="wordMistakes?.length" class="mask">
@@ -50,7 +58,6 @@
   import Hourglass from './Hourglass.vue';
   
 
-const test:Ref<string> = ref('')
 
   const props = defineProps({
     currentLearnSession: { type: Object as PropType<CurrentLearnSession>, required: true }
@@ -138,17 +145,27 @@ const test:Ref<string> = ref('')
   };
   
   const sendToTranslate = async(bytes:string) => {
-    // const result = await fetch('http://localhost:8000/transcribeText',{
-    //     method:'POST',
-    //     headers:{
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body:JSON.stringify({
-    //         file:bytes
-    //     })
-    // }).then(res=>res.json()).catch(err=>console.error(err))
+    if(!isInputShow.value){
+     const result = await fetch('http://localhost:8000/transcribeText',{
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+            file:bytes
+        })
+    }).then(res=>res.json()).catch(err=>console.error(err))
+    userWordTranslated.value =result
+    }else{
+      console.log('siema')
+      userWordTranslated.value = userWordInput.value
+    }
     
-    userWordTranslated.value =test.value
+    if(!userWordTranslated.value){
+      wordMistakes.value = ['No word detected']
+      userWordTranslated.value = 'No word detected'
+      return
+    }
     compareWords()
   };
 
@@ -191,11 +208,16 @@ const test:Ref<string> = ref('')
   }
 
 
+  const isInputShow: Ref<boolean> = ref(false);
+
+
 
   const exitToLevels = ()=>{
     emits("exitToLevels")
   }
 
+
+  const userWordInput:Ref<string> = ref('')
   const wordToTranslate = ref()
   const wordToTranslateComp = computed(()=>wordToTranslate.value)
 
