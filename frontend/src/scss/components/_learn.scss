@@ -69,11 +69,41 @@
                 span{
                     font-size: 30px;
                 }
+                &__userWord{
+                    color: #1EC388;
+                }
             }
             &__correctAnswer{
                 font-size: 30px;
                 color: #1EC388;
             }
+        }
+    }
+    .incorrect{
+        color: #e60060;
+    }
+}
+.mask{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgba(255, 255, 255, 0.885) ;
+    gap: 2rem;
+    button{
+        width: 200px;
+        height: 100px;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 30px;
+        &:hover{
+            cursor: pointer;
+            background-color: #acacac;
         }
     }
 }

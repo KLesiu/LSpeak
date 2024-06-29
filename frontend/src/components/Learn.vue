@@ -3,7 +3,7 @@
       <div class="learn__header">
         <div>
           <h2>Module: {{ currentLearnSession.moduleName }}</h2>
-          <span>Step: {{ currentLearnSession.step }}</span>
+          <span>Step: {{currentLearnSession.step}}</span>
         </div>
         <div class="learn__header__timer">
           <span :class="{ 'expiring': timer < 10 }">{{ timer }}s</span>
@@ -30,28 +30,38 @@
         <div class="learn__main__resultContainer">
           <div class="learn__main__resultContainer__result">
             <img :src="returnSecondLangImage()" />
-            <span v-if="userWordTranslatedComp">{{ userWordTranslatedComp}}</span>
+            <input type="text" v-model="test">
+            <span v-if="userWordTranslatedComp" class="learn__main__resultContainer__result__userWord" :class="{'incorrect':wordMistakes?.length}">{{ userWordTranslatedComp}}</span>
             <span v-else>.....</span>
           </div>
-          <span class="learn__main__resultContainer__correctAnswer">{{ correctWordTranslateComp }}</span>
+          <span class="learn__main__resultContainer__correctAnswer" v-if="userWordTranslatedComp">{{ correctWordTranslateComp }}</span>
         </div>
       </div>
+    </section>
+    <section v-if="wordMistakes?.length" class="mask">
+      <button @click="repeatLevel">Play again</button>
+      <button @click="exitToLevels">Exit</button>
     </section>
   </template>
   
   <script lang="ts" setup>
-  import { PropType, Ref, computed, onUnmounted, ref } from 'vue';
+  import { PropType, Ref, computed,  onMounted,  onUnmounted, ref } from 'vue';
   import { CurrentLearnSession, Question } from './../interfaces/LearnInterfaces';
   import Hourglass from './Hourglass.vue';
   
+
+const test:Ref<string> = ref('')
+
   const props = defineProps({
     currentLearnSession: { type: Object as PropType<CurrentLearnSession>, required: true }
   });
+
+  const emits = defineEmits(['exitToLevels','levelCompleted'])
   
   const isMicrophoneActive: Ref<boolean> = ref(false);
   
   const configLang = JSON.parse(localStorage.getItem('configLang')!);
-  const timer: Ref<number> = ref(90);
+  const timer: Ref<number> = ref(30);
   
   const returnBaseLangImage = () => `/src/assets/${configLang.baseLang}.svg`;
   const returnSecondLangImage = () => `/src/assets/${configLang.secondLang}.svg`;
@@ -68,7 +78,9 @@
   };
   
   setInterval(() => {
+    if(timer.value === 0) return
     timer.value--;
+    if(timer.value === 0) wordMistakes.value = ['Time is over']
   }, 1000);
   
   const audioPlayer = ref<HTMLAudioElement | null>(null);
@@ -121,6 +133,9 @@
       mediaRecorder.value.stop();
     }
   };
+  const resetTimer = () => {
+    timer.value = 30;
+  };
   
   const sendToTranslate = async(bytes:string) => {
     // const result = await fetch('http://localhost:8000/transcribeText',{
@@ -132,8 +147,8 @@
     //         file:bytes
     //     })
     // }).then(res=>res.json()).catch(err=>console.error(err))
-    const result = 'Good Morgen'
-    userWordTranslated.value = result
+    
+    userWordTranslated.value =test.value
     compareWords()
   };
 
@@ -148,19 +163,56 @@
             text: userWordTranslatedComp.value
         })
     }).then(res=>res.json()).catch(err=>console.error(err))
-    console.log(result)
+    if(!result.length) getNextLevel()
+    else wordMistakes.value=result
+    
   }
 
-  const wordToTranslate = ref(props.currentLearnSession.texts[0][configLang.baseLang as keyof Question])
+  const repeatLevel = ()=>{
+    userWordTranslated.value=''
+    wordMistakes.value=[]
+    resetTimer()
+    
+  }
+
+  const getNextLevel = ()=>{
+    if(!props.currentLearnSession) return
+    if(stepOnLevel.value===props.currentLearnSession.texts.length-1){
+      return emits("levelCompleted",props.currentLearnSession)
+    } 
+    stepOnLevel.value++
+    setTimeout(()=>{
+      userWordTranslated.value=''
+      wordToTranslate.value = props.currentLearnSession.texts[stepOnLevel.value][configLang.baseLang as keyof Question]
+      correctWordTranslate.value = props.currentLearnSession.texts[stepOnLevel.value][configLang.secondLang as keyof Question]
+      resetTimer()
+    },1000)
+  
+  }
+
+
+
+  const exitToLevels = ()=>{
+    emits("exitToLevels")
+  }
+
+  const wordToTranslate = ref()
   const wordToTranslateComp = computed(()=>wordToTranslate.value)
 
   const userWordTranslated = ref('')
   const userWordTranslatedComp = computed(()=>userWordTranslated.value)
 
-  const correctWordTranslate = ref(props.currentLearnSession.texts[0][configLang.secondLang as keyof Question])
+  const correctWordTranslate = ref()
   const correctWordTranslateComp = computed(()=>correctWordTranslate.value)
- 
+
+  const wordMistakes:Ref<string[] | undefined> = ref([])
+  const stepOnLevel: Ref<number> = ref(0);
   
+onMounted(()=>{
+  wordToTranslate.value = props.currentLearnSession.texts[0][configLang.baseLang as keyof Question]
+  correctWordTranslate.value = props.currentLearnSession.texts[0][configLang.secondLang as keyof Question]
+})
+
   onUnmounted(() => {
     if (mediaRecorder.value) {
       mediaRecorder.value.stream.getTracks().forEach((track) => track.stop());

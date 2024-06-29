@@ -3,7 +3,7 @@
         <section class="levels__board">
             <div class="levels__board__info-container">
                 <div class="levels__board__info-container__info">
-                    <h3>Module: {{ moduleName }}</h3>
+                    <h3>Module: {{ currentModule?.moduleName }}</h3>
                     <span>Progress: {{ progressPercentage }}%</span>
                 </div>
             </div>
@@ -22,7 +22,8 @@ import { ModulesEnum } from '../enums/ModulesEnum';
 import { StatusEnum } from '../enums/StatusEnum';
 
 
-const moduleName:Ref<string> = ref('Basic Phrases');
+
+
 const progress:Ref<number>=ref(0)
 const progressPercentage:ComputedRef<number>=computed(()=>progress.value*100)
 const currentModule:Ref<LevelsInterface | undefined> =ref()
@@ -57,7 +58,6 @@ const buildLevelInterface = ()=>{
     let progressCounter:number=0 ;
     levelsInterface.levels.forEach(ele=>{
         if(ele.status===StatusEnum.COMPLETED){
-            console.log(ele)
             progressCounter++
         }
     })

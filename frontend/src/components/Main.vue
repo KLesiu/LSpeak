@@ -3,11 +3,11 @@
     <Settings v-if="props.view === SideBarEnum.SETTINGS" v-bind="$attrs" />
     <Levels
       v-else-if="props.view === SideBarEnum.LEVELS"
-      @startLevel="startLevel"
+      @startLevel="startLevel" 
     />
     <Learn
       v-else-if="props.view === SideBarEnum.LEARN && currentLearnSession"
-      :current-learn-session="currentLearnSession"
+      :current-learn-session="currentLearnSession"  v-bind="$attrs"
     />
   </main>
 </template>
@@ -29,13 +29,18 @@ const props = defineProps({
 const currentLearnSession: Ref<CurrentLearnSession | undefined> = ref();
 
 
+
+
+
 const startLevel = async (
+  
   stepInfo: { step: number; moduleName: string; moduleId: ModulesEnum } = {
     step: 1,
     moduleName: "Basic Phrases",
     moduleId: ModulesEnum.EASY,
   }
 ) => {
+  
   const texts = await getData(stepInfo.moduleId, stepInfo.step);
   currentLearnSession.value = {
     moduleName: stepInfo.moduleName,
@@ -46,10 +51,10 @@ const startLevel = async (
   };
 };
 
+
+
 const getData = async (
-  currentModuleId: ModulesEnum = localStorage.getItem(
-    "currentModule"
-  ) as ModulesEnum,
+  currentModuleId: ModulesEnum,
   step: number = 1
 ) => {
   const module = currentModuleId ? currentModuleId : ModulesEnum.EASY;
@@ -92,6 +97,8 @@ const getData = async (
   return filteredResult;
 };
 onMounted(async()=>{
-  await startLevel()
+  const learnSession = localStorage.getItem("currentLearnSession")
+  if(learnSession) currentLearnSession.value = JSON.parse(learnSession) 
+  await startLevel(currentLearnSession.value)
 })
 </script>

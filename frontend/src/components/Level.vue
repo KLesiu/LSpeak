@@ -3,7 +3,6 @@
         <div v-for="level in actualLevel.levels" :key="level.step" class="level-container__step" :class="level.status">
             <img :src="returnLevelIcon(level.status)" @click="startLevel(level.step,level.status)"  />
         </div>
-        <button :disabled="!actualLevel.isCompleted">NEXT</button>
     </section>
 </template>
 

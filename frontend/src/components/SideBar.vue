@@ -35,7 +35,11 @@
 
 <script setup lang="ts">
 import {SideBarEnum} from "./../enums/SideBarEnum";
-import { ref } from "vue";
+import { PropType, ref, watch } from "vue";
+
+const props = defineProps({
+  active: { type: String as PropType<SideBarEnum>, default: SideBarEnum.LEVELS },
+});
 
 const activeTab = ref<SideBarEnum>(SideBarEnum.LEVELS);
 const emits = defineEmits(["activeTab"]);
@@ -44,4 +48,8 @@ const setActiveTab = (tab: SideBarEnum) => {
   activeTab.value = tab;
   emits('activeTab',tab);
 };
+
+watch(() => props.active, (newVal) => {
+  activeTab.value = newVal;
+});
 </script>
