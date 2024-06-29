@@ -25,13 +25,15 @@ Ideas:
 
 <h2>🛠️ Installation Steps:</h2>
 
-<p>0. Get the env file from the author and paste the file into ./api </p>
 
 <p>1. Clone repo</p>
 
 ```
 git clone https://github.com/KLesiu/LSpeak.git
 ```
+
+<p>1.1. Get the env file from the author and paste the file into ./api </p>
+
 
 <p>2. Go to the frontend directory</p>
 
