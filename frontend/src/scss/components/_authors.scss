@@ -55,10 +55,12 @@
     }
   }
 
-  .Picture {
-    height: 85%;
-    padding: 2rem;
-    max-width: 650px;
-    border: #e60060 solid 1px;
+  .picture {
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    
+
   }
 }
