@@ -4,7 +4,7 @@ class CompareTextRequest(BaseModel):
     text:str
 
 class TranscribeTextRequest(BaseModel):
-    file:bytes
+    file:str
 
 class LoadDataByLvlRequest(BaseModel):
     level:str

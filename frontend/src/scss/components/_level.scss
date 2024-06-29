@@ -1,0 +1,55 @@
+.level-container{
+    display: flex;
+    flex:1;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    height: calc(100% - 150px);
+    &__step{
+        height: 200px;
+        width: 200px;
+        background-color: #CCCCCC;
+        opacity: 0.7;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover{
+            opacity: 1;
+        }
+        &.completed{
+            background-color: #15FB8C;
+        }
+        &.in-progress{
+            background-color: #E50060;
+        }
+        &.not-completed{
+            background-color: #CCCCCC;
+        }
+        img{
+            transform: scale(2.5)
+        }
+    }
+    button{
+        position: fixed;
+        width: 100px;
+        height: 50px;
+        border: none;
+        border-radius: 1rem;
+        background-color: #E50060;
+        color: white;
+        font-size: 16px;
+        bottom: 50px;
+        right: 100px;
+        opacity: 0.7;
+        cursor: pointer;
+        &:hover{
+            opacity: 1;
+        }
+        &:disabled{
+            background-color: #CCCCCC;
+            cursor: not-allowed;
+        }
+    }
+}
